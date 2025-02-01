@@ -2,13 +2,15 @@
 import { useEffect, useState } from 'react';
 import Link from "next/link";
 import { titleFont } from "@/config/fonts";
-import { ShoppingCart } from 'lucide-react';
+import {  Menu, ShoppingCart } from 'lucide-react';
 import { useCartStore } from '@/store/products/cart-product-store';
+import { useUIStore } from '@/store/ui/ui-store';
 
 export const NavBar = () => {
 
     const [loaded, setLoaded] = useState(false);
     const totalItemsInCart = useCartStore((state) => state.getTotalItems());
+    const { openSideMenu } = useUIStore()
 
     useEffect(() => {
         setLoaded(true);
@@ -16,7 +18,10 @@ export const NavBar = () => {
 
     return (
         <nav className="flex p-4 px-5 justify-between items-center w-full bg-stone-300">
-            <div>
+            <div className='flex justify-center items-center space-x-4'>
+                <button onClick={() => openSideMenu()}>
+                    <Menu />
+                </button>
                 <Link href="/">
                     <span className={`${titleFont.className} antialiased font-bold`}>
                         Products
@@ -24,7 +29,7 @@ export const NavBar = () => {
                     <span> | Store</span>
                 </Link>
             </div>
-            <div className="flex items-center">
+            <div className="flex flex-row justify-center items-center space-x-2">
                 <Link href={
                     ((totalItemsInCart === 0) && loaded)
                         ? '/empty'
@@ -32,14 +37,13 @@ export const NavBar = () => {
                 } className="mx-2">
                     <div className="relative">
                         {(loaded && totalItemsInCart > 0) && (
-                            <span className="fade-in absolute text-xs px-1.5 rounded-full font-bold -top-2 -right-2 bg-blue-700 text-white">
+                            <span className="fade-in flex justify-center items-center absolute text-xs h-[20px] w-[20px] rounded-full font-bold -top-3 -right-2 bg-blue-700 text-white">
                                 {totalItemsInCart}
                             </span>
                         )}
                         <ShoppingCart className="w-5 h-5" />
                     </div>
                 </Link>
-
             </div>
         </nav>
     );

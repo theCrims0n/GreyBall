@@ -1,14 +1,14 @@
 'use server';
 
-import data from '@/json/product.json';
+import Products from '@/schemas/products';
 
 export const getProductByTitle = async (title: string) => {
 
     try {
-
-        const product = await data.filter(item => item.title.toLowerCase().trim().includes(title.toLowerCase().trim()))
-        if (!product) return null;
-        return  product 
+        const data = await Products.find({ title : { $regex : new RegExp(title, "i") } } )
+        const product = JSON.parse(JSON.stringify(data))
+        if (!product) return [];
+        return product
 
     } catch (error) {
         console.log(error);

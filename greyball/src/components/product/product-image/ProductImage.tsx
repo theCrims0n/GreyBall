@@ -1,4 +1,7 @@
+'use client'
+import clsx from 'clsx';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface Props {
   src?: string;
@@ -18,20 +21,28 @@ export const ProductImage = ({
   height
 }: Props) => {
 
-  const localSrc = ( src ) 
+  const localSrc = (src)
     ? src.startsWith('http')
       ? src
-      : `/products/${ src }`
+      : `/products/${src}`
     : '/imgs/placeholder.jpg';
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  const onloadCallBack = (e: any) => {
+    setIsLoading(false)
+    typeof onload === 'function'
+  }
 
   return (
     <Image
-      src={ localSrc }
-      width={ width }
-      height={ height}
-      alt={ alt }
-      className={ className }
-      style={ style }
+      src={localSrc}
+      width={width}
+      height={height}
+      alt={alt}
+      className={clsx(className , 'ease-in-out animation duration-500', isLoading ? 'opacity-0' : 'opacity-100')}
+      style={style}
+      onLoad={onloadCallBack}
     />
   );
 };

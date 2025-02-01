@@ -1,12 +1,14 @@
 'use server';
 
-import data from '@/json/product.json';
+import Products from "@/schemas/products";
+import connection from "../../../db/connection";
 
-export const getProductById = async (id: number) => {
+export const getProductById = async (_id: Object) => {
 
     try {
-
-        const product = await data.find(item => item.id == id)
+        await connection()
+        const data = await Products.findById({ _id })
+        const product = JSON.parse(JSON.stringify(data))
         if (!product) return null;
         return {
             ...product,

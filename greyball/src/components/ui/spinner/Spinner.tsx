@@ -3,10 +3,10 @@ import { LoaderCircle } from "lucide-react"
 export const Spinner = () => {
     return (
         <div className="w-full h-full flex justify-center place-items-center">
-            <LoaderCircle className="-ms-1 me-2 animate-spin"
+            <LoaderCircle className="animate-spin"
                 size={20}
                 strokeWidth={2}
-                aria-hidden="true"
-                color="black" /></div>
+                aria-hidden="true" />
+        </div>
     )
 }

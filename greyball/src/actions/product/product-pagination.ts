@@ -1,25 +1,27 @@
 "use server";
 
-import data from '@/json/product.json';
+import Products from '@/schemas/products';
+import connection from '../../../db/connection';
 
 interface PaginationOptions {
   page?: number;
-  take?: number;
+  limit?: number;
 }
 
 export const getPaginatedProductsWithImages = async ({
   page = 1,
-  take = 10,
+  limit = 10,
 }: PaginationOptions) => {
   if (isNaN(Number(page))) page = 1;
   if (page < 1) page = 1;
 
   try {
-    const skip = (page - 1) * take
-    const limit = skip + 10
-    const products = data.slice(skip, limit)
-    const totalCount = data.length;
-    const totalPages = Math.ceil(totalCount / take);
+    await connection()
+    const skip = (page - 1) * limit;
+    const data = await Products.find().skip(skip).limit(limit)
+    const products = JSON.parse(JSON.stringify(data))
+    const totalCount = await Products.find().countDocuments()
+    const totalPages = Math.ceil(totalCount / limit);
 
     return {
       currentPage: page,
@@ -30,6 +32,7 @@ export const getPaginatedProductsWithImages = async ({
       })),
     };
   } catch (error) {
+    console.log(error)
     throw new Error("The products could not be loaded");
   }
 };

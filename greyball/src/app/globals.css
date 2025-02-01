@@ -63,21 +63,41 @@ body {
 }
 
 .btn-primary {
-  @apply bg-blue-600 hover:bg-blue-800 text-white py-2 px-4 rounded transition-all;
+  @apply bg-cyan-600 hover:bg-cyan-800 text-white py-2 px-4 rounded transition-all h-10 rounded-md text-sm;
 }
 
 .btn-secondary {
-  @apply bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded transition-all;
+  @apply bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded transition-all h-10 rounded-md text-sm;
 }
 
 .btn-disabled {
-  @apply bg-gray-600 text-white py-2 px-4 rounded transition-all;
+  @apply bg-gray-600 text-white py-2 px-4 rounded transition-all h-10 rounded-md text-sm;
 }
 
 .btn-danger {
-  @apply bg-red-500 hover:bg-red-700 text-white py-2 px-4 transition-all;
+  @apply bg-red-500 hover:bg-red-700 text-white py-2 px-4 transition-all h-10 rounded-md text-sm;
 }
 
 img{
   background-color: transparent;
+}
+
+.box-shadow{ 
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius : 8px;
+  background-color : rgba(243, 243, 243, 0.3)
+}
+
+.box-shadow-input {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.box-shadow-input:focus {
+  animation: duration-300;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.box-shadow-input:hover {
+  animation: duration-300;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

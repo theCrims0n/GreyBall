@@ -40,7 +40,7 @@ export const ProductsCart = () => {
                     <div>
                         <Link
                             className="hover:underline cursor-pointer"
-                            href={`/product/${product.id} `}>
+                            href={`/product/${product._id} `}>
                             {product.title}
                         </Link>
                         <p>${product.price + ' ' + product.currency}</p>

@@ -8,8 +8,7 @@ import { ProductRating } from "@/components/product/product-rating/ProductRating
 import { ProductSnackBar } from "@/components/product/product-snack-bar/ProductSnackBar";
 
 interface Props {
-  params: Promise<{ [id: number]: number }>;
-
+  params: Promise<{ [id: string]: Object }>;
 }
 
 export async function generateMetadata(

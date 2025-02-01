@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { inter } from "@/config/fonts";
 import "@fontsource/montserrat";
-import { Suspense } from "react";
-import { Spinner } from "@/components/ui/spinner/Spinner";
+import { Providers } from "@/components/providers/Providers";
 
 export const metadata: Metadata = {
   title: {
@@ -22,9 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={inter.className} >
-        <Suspense fallback={<Spinner />}>
-          {children}
-        </Suspense>
+          <Providers>
+            {children}
+          </Providers>
       </body>
     </html>
   );

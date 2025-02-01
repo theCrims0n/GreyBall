@@ -62,7 +62,7 @@ export const useCartStore = create<State>()(
         const { cart } = get();
 
         const productInCart = cart.some(
-          (item) => item.id === product.id
+          (item) => item._id === product._id
         );
 
         if (!productInCart) {
@@ -71,7 +71,7 @@ export const useCartStore = create<State>()(
         }
 
         const updatedCartProducts = cart.map((item) => {
-          if (item.id === product.id) {
+          if (item._id === product._id) {
             return { ...item, quantity: item.quantity + product.quantity };
           }
 
@@ -85,7 +85,7 @@ export const useCartStore = create<State>()(
         const { cart } = get();
 
         const updatedCartProducts = cart.map((item) => {
-          if (item.id === product.id) {
+          if (item._id === product._id) {
             return { ...item, quantity: quantity };
           }
           return item;
@@ -97,7 +97,7 @@ export const useCartStore = create<State>()(
       removeProduct: (product: CartProduct) => {
         const { cart } = get();
         const updatedCartProducts = cart.filter(
-          (item) => item.id !== product.id
+          (item) => item._id !== product._id
         );
 
         set({ cart: updatedCartProducts });

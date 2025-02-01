@@ -12,22 +12,31 @@ interface Props {
 
 export const ProductGridItem = ({ product }: Props) => {
 
+    const [isLoading, setIsLoading] = useState(true)
+
+    const onloadCallBack = (e: any) => {
+        setIsLoading(false)
+        typeof onload === 'function'
+    }
+
     return (
         <div className="rounded-md overflow-hidden fade-in h-full md:max-w-80 w-full">
-            <Link href={`/product/${product.id}`}>
+            <Link href={`/product/${product._id}`}>
                 <Image
+                    key={product.title}
                     width={500}
                     height={500}
                     src={product.images[0]}
                     alt={product.title}
                     loading='lazy'
-                    className="rounded fade-in h-60 w-90 animtion duration-300 ease-in-out hover:scale-110"
+                    className={clsx("rounded fade-in h-60 w-90 ease-in-out animation duration-500 hover:scale-110 opacity-0", !isLoading && 'opacity-100')}
+                    onLoad={onloadCallBack}
                 />
             </Link>
             <div className="p-4 flex flex-col">
                 <Link
                     className="hover:text-blue-600"
-                    href={`/product/${product.id}`}>
+                    href={`/product/${product._id}`}>
                     {product.title}
                 </Link>
                 <span className="font-bold">${product.price + ' ' + product.currency}</span>
