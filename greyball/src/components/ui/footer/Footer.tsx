@@ -7,13 +7,6 @@ export const Footer = () => {
         href='/'
         className="mx-3"
       >
-        Greyball Test
-      </Link>
-
-      <Link
-        href='/'
-        className="mx-3"
-      >
         {`Miguel Angel Salomon Villegas ` + new Date(Date.now()).getFullYear()} 
       </Link>
       <Link

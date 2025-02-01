@@ -20,7 +20,7 @@ export const ProductGridItem = ({ product }: Props) => {
     }
 
     return (
-        <div className="rounded-md overflow-hidden fade-in h-full w-full ">
+        <div className="rounded-md overflow-hidden fade-in h-full lg:max-w-60 w-full">
             <Link href={`/product/${product._id}`}>
                 <Image
                     key={product.title}
@@ -29,7 +29,7 @@ export const ProductGridItem = ({ product }: Props) => {
                     src={product.images[0]}
                     alt={product.title}
                     loading='lazy'
-                    className={clsx("rounded fade-in h-60 w-90 ease-in-out animation duration-500 hover:scale-110 opacity-0", !isLoading && 'opacity-100')}
+                    className={clsx("rounded fade-in md:h-60 h-52 h-32 md:w-90 w-fit ease-in-out animation duration-500 hover:scale-110 opacity-0", !isLoading && 'opacity-100')}
                     onLoad={onloadCallBack}
                 />
             </Link>
