@@ -37,7 +37,7 @@ export const RegisterForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-8 w-[500px] h-[450px] box-shadow">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-8 w-full h-full md:w-[500px] md:h-[450px] box-shadow">
 
       <label className='text-sm' htmlFor="email">Complete Name</label>
       <Input

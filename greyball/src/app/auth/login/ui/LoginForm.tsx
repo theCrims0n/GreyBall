@@ -23,7 +23,7 @@ export const LoginForm = () => {
   }, [state]);
 
   return (
-    <form action={dispatch} className="flex flex-col p-8 w-[500px] h-[400px] box-shadow">
+    <form action={dispatch} className="flex flex-col p-8 w-full h-full md:w-[500px] md:h-[400px] box-shadow">
       <label className='text-sm' htmlFor="email">Email</label>
       <Input
         className="px-5 py-2 border bg-gray-200 rounded mb-5"
