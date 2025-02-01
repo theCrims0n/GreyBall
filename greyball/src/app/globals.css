@@ -94,7 +94,9 @@ body {
 }
 
 img{
-  background-color: transparent;
+  display: block;
+  width: auto;
+  min-height: 145px;
 }
 
 .box-shadow{ 
