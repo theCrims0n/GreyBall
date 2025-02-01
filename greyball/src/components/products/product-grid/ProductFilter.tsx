@@ -30,9 +30,9 @@ export const ProductFilter = () => {
     }
 
     return (
-        <div className="flex justify-center items-center  h-full m-1">
+        <div className="flex justify-center items-center h-full m-1">
             <div id="hs-combobox-basic-usage" className="relative" data-hs-combo-box="">
-                <div className="relative md:w-[500px] w-96">
+                <div className="relative lg:w-[500px] md:w-96 sm:w-80 w-full">
                     <Input placeholder="Filter by title product" onChange={(e) => handleProductByTitle(e.target.value)} className="py-3 ps-4 pe-9 block w-full rounded-lg disabled:opacity-50 disabled:pointer-events-none" type="text" value={text} role="combobox" aria-expanded="false" data-hs-combo-box-input="" />
                     <button id='close' onClick={() => handleProductByTitle('')} className="absolute top-1/2 end-3 -translate-y-1/2">
                         <X className="text-zinc-900 w-10" />

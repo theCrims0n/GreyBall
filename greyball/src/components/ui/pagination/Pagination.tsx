@@ -39,7 +39,7 @@ export const Pagination = ({ totalPages }: Props) => {
     }
 
     return (
-        <div className="flex  text-center justify-center mt-10 mb-32 ">
+        <div className="flex  text-center justify-center mt-10 mb-32">
             <nav aria-label="Page navigation example">
                 <ul className="flex list-style-none">
                     <li className="page-item">
@@ -52,13 +52,13 @@ export const Pagination = ({ totalPages }: Props) => {
                     {
                         allPages.map((page, index) => (
 
-                            <li key={index} className="page-item w-12 m-1">
+                            <li key={index} className="page-item lg:w-12 md:w-12 sm:w-12 w-6">
                                 <Link
                                     className={
                                         clsx(
-                                            "page-link relative block py-1.5 px-3 border-0 outline-none transition-all duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none",
+                                            "flex justify-center items-center md:text-md text-sm page-link relative block py-1.5 px-3 border-0 outline-none transition-all animation duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none",
                                             {
-                                                'bg-blue-600 shadow-sm text-white hover:text-white hover:bg-blue-700': page === currentPage
+                                                'bg-cyan-600 shadow-sm text-white hover:text-white hover:bg-cyan-700': page === currentPage
                                             }
                                         )}
                                     href={createPageUrl(page)} >
