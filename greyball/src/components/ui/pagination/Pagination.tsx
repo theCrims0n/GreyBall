@@ -2,7 +2,6 @@
 
 import { paginationNumbers } from "@/utils/paginationNumbers";
 import clsx from "clsx";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
@@ -26,10 +25,10 @@ export const Pagination = ({ totalPages }: Props) => {
         }
 
         if (+pageNumber <= 0) {
-            return `${pathname}`; //   href="/kid";
+            return `${pathname}`;
         }
 
-        if (+pageNumber > totalPages) { // Next > 
+        if (+pageNumber > totalPages) {
             return `${pathname}?${params.toString()}`;
         }
 
@@ -39,43 +38,21 @@ export const Pagination = ({ totalPages }: Props) => {
     }
 
     return (
-        <div className="flex text-center justify-center mt-10 mb-32 ">
-            <nav aria-label="Page navigation example" >
-                <ul className="flex justify-center items-center list-style-none">
-                    <li className="page-item ">
-                        <Link
-                            className="flex justify-center items-center md:text-md text-xs page-link relative block py-1.5 px-3 border-0 outline-none transition-all animation duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href={createPageUrl(currentPage - 1)}>
-                            <ChevronLeft size={25} />
-                        </Link>
-                    </li>
-                    {
-                        allPages.map((page, index) => (
+        <div className="flex justify-center items-center space-x-1 mt-10 mb-32 pr-2">
+            <Link href={createPageUrl(currentPage - 1)} className="rounded-md border border-zinc-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-zinc-600 hover:text-white hover:bg-zinc-800 hover:border-zinc-800 focus:text-white focus:bg-zinc-800 focus:border-zinc-800 active:border-zinc-800 active:text-white active:bg-zinc-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                Prev
+            </Link>
+            {
+                allPages.map((page, index) => (
+                    <Link key={index} href={createPageUrl(page)} className={clsx("animation duration-300 ease-in-out min-w-9 rounded-md bg-zinc-800 py-2 px-3 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-zinc-700 focus:shadow-none active:bg-zinc-700 hover:bg-zinc-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2", currentPage == page && 'bg-zinc-600')}>
+                        {page}
+                    </Link>
+                ))
+            }
+            <Link href={createPageUrl(currentPage + 1)} className="min-w-9 rounded-md border border-zinc-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-zinc-600 hover:text-white hover:bg-zinc-800 hover:border-zinc-800 focus:text-white focus:bg-zinc-800 focus:border-zinc-800 active:border-zinc-800 active:text-white active:bg-zinc-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
+                Next
+            </Link>
+        </div >
 
-                            <li key={index} className="page-item md:w-[80px] sm:w-[50px] w-[20px]">
-                                <Link
-                                    className={
-                                        clsx(
-                                            "flex md:w-10 justify-center items-center md:text-md text-sm page-link relative block py-1.5 px-3 border-0 outline-none transition-all animation duration-500 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none",
-                                            {
-                                                'bg-cyan-600 shadow-sm text-white hover:text-white hover:bg-cyan-700': page === currentPage
-                                            }
-                                        )}
-                                    href={createPageUrl(page)} >
-                                    {page}
-                                </Link>
-                            </li>
-                        ))
-                    }
-                    <li className="page-item ">
-                        <Link
-                            className="flex justify-center items-center md:text-md text-xs page-link relative block py-1.5 px-3 border-0 outline-none transition-all animation duration-300 rounded text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href={createPageUrl(currentPage + 1)}>
-                            <ChevronRight size={25} />
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
-        </div>
     );
 }

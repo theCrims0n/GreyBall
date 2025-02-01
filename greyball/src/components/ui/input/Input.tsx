@@ -9,7 +9,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={clsx(
-          "placeholder-gray-900 placeholder-opacity-75 autofill-text flex h-10 w-full font-normal rounded-md box-shadow-input bg-slate-100  px-3 py-2 text-sm text-zinc-950 shadow-sm shadow-black/5 ring-offset-background transition-shadow focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+          "placeholder-gray-900 placeholder-opacity-75 autofill-text flex h-10 w-full font-normal rounded-md box-shadow-input bg-[rgb(251, 251, 251)]  px-3 py-2 text-sm text-zinc-950 shadow-sm shadow-black/5 ring-offset-background transition-shadow focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
           type === "search" &&
             "[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none",
           type === "file" &&

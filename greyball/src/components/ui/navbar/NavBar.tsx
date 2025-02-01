@@ -17,7 +17,7 @@ export const NavBar = () => {
     }, [])
 
     return (
-        <nav className="flex p-4 px-5 justify-between items-center w-full bg-stone-300">
+        <nav className="flex p-4 px-5 justify-between items-center w-full bg-[rgb(251, 251, 251)] shadow shadow-b-lg">
             <div className='flex justify-center items-center space-x-4'>
                 <button onClick={() => openSideMenu()}>
                     <Menu />

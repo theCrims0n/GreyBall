@@ -37,13 +37,13 @@ export const RegisterForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-8 w-full h-full md:w-[500px] md:h-[450px] box-shadow">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-8 w-full h-full md:w-[500px] md:h-[450px] box-shadow-card">
 
       <label className='text-sm' htmlFor="email">Complete Name</label>
       <Input
         className={
           clsx(
-            "px-5 py-2 border bg-gray-200 rounded mb-5",
+            "px-5 py-2 border mb-5",
             { 'border-red-500': errors.name }
           )
         }
@@ -56,7 +56,7 @@ export const RegisterForm = () => {
       <Input
         className={
           clsx(
-            "px-5 py-2 border bg-gray-200 rounded mb-5",
+            "px-5 py-2 mb-5 border",
             {
               'border-red-500': errors.email
             }
@@ -70,7 +70,7 @@ export const RegisterForm = () => {
       <Input
         className={
           clsx(
-            "px-5 py-2 border bg-gray-200 rounded mb-5",
+            "px-5 py-2 mb-5 border",
             { 'border-red-500': errors.password }
           )
         }
@@ -80,7 +80,7 @@ export const RegisterForm = () => {
 
       <span className="text-red-500 text-sm">{errorMessage} </span>
 
-      <button className="btn-primary">{isSubmitting ? <Spinner /> : 'Submit'}</button>
+      <button className="btn-primary">{isSubmitting ? <Spinner size={20}/> : 'Submit'}</button>
 
       <div className="flex items-center my-5">
         <div className="flex-1 border-t border-gray-500"></div>

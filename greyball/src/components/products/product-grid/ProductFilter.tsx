@@ -30,7 +30,7 @@ export const ProductFilter = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-full m-1">
+        <div className="flex justify-center items-center h-full pt-4">
             <div id="hs-combobox-basic-usage" className="relative" data-hs-combo-box="">
                 <div className="relative md:w-[600px] sm:w-[500px] w-screen pr-2 pl-2">
                     <Input placeholder="Filter by title product" onChange={(e) => handleProductByTitle(e.target.value)} className="py-3 ps-4 pe-9 block w-full rounded-lg disabled:opacity-50 disabled:pointer-events-none" type="text" value={text} role="combobox" aria-expanded="false" data-hs-combo-box-input="" />
@@ -43,7 +43,7 @@ export const ProductFilter = () => {
                     <div className="absolute z-50 w-full max-h-72 p-1 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
                         {pending ?
                             <div className="py-2 px-4 w-full text-sm text-gray-800 rounded-lg focus:outline-none ">
-                                <Spinner />
+                                <Spinner size={20} />
                             </div>
                             :
                             product.map((product, index) => {

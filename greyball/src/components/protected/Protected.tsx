@@ -14,7 +14,7 @@ export const Protected = ({ children }: Props) => {
 
     return (
         <>
-            {!isAuthenticated ? <div className="flex min-h-screen justify-center items-center"><Spinner /></div> : children}
+            {!isAuthenticated ? <div className="flex min-h-screen justify-center items-center"><Spinner size={50} /></div> : children}
         </>
     )
 }

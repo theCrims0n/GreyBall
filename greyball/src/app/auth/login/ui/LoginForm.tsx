@@ -13,8 +13,6 @@ export const LoginForm = () => {
 
   const [state, dispatch] = useActionState(authenticate, undefined);
 
-  console.log(state);
-
   useEffect(() => {
     if (state === 'Success') {
       window.location.replace('/');
@@ -23,17 +21,17 @@ export const LoginForm = () => {
   }, [state]);
 
   return (
-    <form action={dispatch} className="flex flex-col p-8 w-full h-full md:w-[500px] md:h-[400px] box-shadow">
+    <form action={dispatch} className="flex flex-col p-8 w-full h-full md:w-[500px] md:h-[400px] box-shadow-card">
       <label className='text-sm' htmlFor="email">Email</label>
       <Input
-        className="px-5 py-2 border bg-gray-200 rounded mb-5"
+        className="px-5 py-2 mb-5"
         type="email"
         name="email"
       />
 
       <label className='text-sm' htmlFor="email">Password</label>
       <Input
-        className="px-5 py-2 border bg-gray-200 rounded mb-5"
+        className="px-5 py-2 mb-5"
         type="password"
         name="password"
       />
@@ -80,7 +78,7 @@ function LoginButton() {
       })}
       disabled={pending}
     >
-      {pending ? <Spinner /> : 'Submit'}
+      {pending ? <Spinner size={20}/> : 'Submit'}
     </button>
   );
 }

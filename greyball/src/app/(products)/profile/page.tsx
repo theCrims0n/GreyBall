@@ -10,8 +10,8 @@ export default async function Profile() {
     }
 
     return (
-        <div className="flex flex-col pb-52 justify-center items-center min-h-screen w-full ">
-            <div className="flex flex-col pl-4 justify-start items-start  w-[500px] h-[400px] box-shadow space-y-1">
+        <div className="flex flex-col pb-52 justify-center items-center min-h-screen w-full">
+            <div className="flex flex-col pl-4 justify-start items-start  w-[500px] h-[400px] box-shadow-card space-y-1">
                 <Title title="Perfil" />
                 <label className="font-bold">Name</label>
                 <p className="text-sm">{session.user.name}</p>
