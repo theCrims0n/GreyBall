@@ -70,8 +70,25 @@ body {
   @apply bg-gray-200 hover:bg-gray-300 text-black py-2 px-4 rounded transition-all h-10 rounded-md text-sm;
 }
 
+.btn-primary:hover{
+  animation: duration-300;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+
+
+.btn-danger:hover{
+  animation: duration-300;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .btn-disabled {
   @apply bg-gray-600 text-white py-2 px-4 rounded transition-all h-10 rounded-md text-sm;
+}
+
+.btn-disabled:hover{
+  animation: duration-300;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .btn-danger {
@@ -94,10 +111,10 @@ img{
 
 .box-shadow-input:focus {
   animation: duration-300;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .box-shadow-input:hover {
   animation: duration-300;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }

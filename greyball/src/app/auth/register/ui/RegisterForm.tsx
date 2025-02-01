@@ -78,7 +78,7 @@ export const RegisterForm = () => {
         {...register('password', { required: true, minLength: 6 })}
       />
 
-      <span className="text-red-500">{errorMessage} </span>
+      <span className="text-red-500 text-sm">{errorMessage} </span>
 
       <button className="btn-primary">{isSubmitting ? <Spinner /> : 'Submit'}</button>
 

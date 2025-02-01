@@ -22,7 +22,7 @@ export const registerUser = async (name: string, email: string, password: string
         return {
             ok: true,
             user: user,
-            message: 'Usuario creado'
+            message: 'User succesfully created'
         }
 
     } catch (error) {
@@ -30,7 +30,7 @@ export const registerUser = async (name: string, email: string, password: string
 
         return {
             ok: false,
-            message: 'No se pudo crear el usuario'
+            message: 'Error with the user submit'
         }
     }
 
